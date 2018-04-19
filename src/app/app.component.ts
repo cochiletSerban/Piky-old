@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import {MaterializeAction} from 'angular2-materialize';
 declare var $:any;
 
 @Component({
@@ -9,9 +9,5 @@ declare var $:any;
 })
 export class AppComponent implements OnInit{
   title = 'app';
-  ngOnInit(){
-    $("#logo").click(()=>{
-      console.log("yay");
-    })
-  }
+  ngOnInit(){}
 }
