@@ -1,17 +1,39 @@
-:host {                 /*global component style*/
-    background-color: peachpuff;
-    display: block;     /* needed to let divs get up to 100vh*/
+ :host{                 /*global component style*/
+    background-color:#B2DFDB;
+    display: block;     /*needed to let divs get up to 100vh*/
+    overflow: auto;
+    height: 100%;
+}
+.centerContainer
+{
+    height: 100%;       /* valing only works with elem h 100%*/
 }
 
-.wrapper {              /*any child of wrapper will pe aligned h and w center*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:100vh;       /*makes the magic happen and makes the div full height*/
+.wrapper {              /*any child of wrapper will pe aligned h and w center */
+    height:100vh;      /*makes the magic happen and makes the div full height */
 }
 
-.centerLogo {           /*child of wrapper*/
-    border-radius: 50%;
-    background-color:red;
-    padding: 3em;
+.check {
+    border: 2px solid black;
+}
+
+/* used to keep the piky logo proportionted on all devices*/
+@media only screen and (min-width : 980px) {
+    /* if width > 980 */
+    .logo {
+        max-width: 550px;
+    }
+    /* :host{
+        background-color:white;
+    } */
+}
+
+@media only screen and (max-width : 979px) {
+    /* if width < 979 */
+    .logo {
+        max-width: 60%;
+    }
+    /* :host {
+        background-color:teal;
+    } */
 }
