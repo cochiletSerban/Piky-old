@@ -1,0 +1,17 @@
+:host {                 /*global component style*/
+    background-color: peachpuff;
+    display: block;     /* needed to let divs get up to 100vh*/
+}
+
+.wrapper {              /*any child of wrapper will pe aligned h and w center*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;       /*makes the magic happen and makes the div full height*/
+}
+
+.centerLogo {           /*child of wrapper*/
+    border-radius: 50%;
+    background-color:red;
+    padding: 3em;
+}
