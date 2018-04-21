@@ -5,6 +5,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GetBgService } from './services/get-bg.service';
 
 
 @NgModule({
@@ -15,9 +17,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
   imports: [
     MaterializeModule,
     BrowserModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GetBgService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,6 +3,10 @@
     display: block;     /*needed to let divs get up to 100vh*/
     overflow: auto;
     height: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
 }
 .centerContainer
 {
@@ -10,11 +14,16 @@
 }
 
 .wrapper {              /*any child of wrapper will pe aligned h and w center */
-    height:100vh;      /*makes the magic happen and makes the div full height */
+    height:100vh;  
+        /*makes the magic happen and makes the div full height */
 }
 
 .check {
     border: 2px solid black;
+}
+
+.btn {
+    height: 100%;
 }
 
 /* used to keep the piky logo proportionted on all devices*/
@@ -36,4 +45,8 @@
     /* :host {
         background-color:teal;
     } */
+}
+
+h3{
+    text-shadow: 2px 2px 2px  gray;
 }
