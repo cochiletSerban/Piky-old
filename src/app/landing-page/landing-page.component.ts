@@ -8,14 +8,19 @@ declare var $:any;
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-
+  bgs : BgArray = {url:[]};
+  spinOnHover : boolean = false;
   constructor(private bg : GetBgService) { }
 
   ngOnInit() {
-    this.bg.getBg().subscribe(
-      resp =>{
-        $('app-landing-page').css('background-image', 'url(' + resp.url[Math.floor(Math.random()*resp.url.length)] + ')');
-      })
+    this.bg.getBg().subscribe(resp => this.bgs = resp);
+    $('.pushpin').pushpin();
   }
 
+  onHo(hovering:boolean){
+    if (hovering)
+      $('i').css('animation','fadein 1s infinite');
+    else
+      $('i').css('animation','none');
+  }
 }
