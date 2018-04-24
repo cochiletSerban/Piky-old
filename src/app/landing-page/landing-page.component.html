@@ -1,3 +1,4 @@
+<!-- image slider -->
 <div class="slider fullscreen" materialize="slider" [materializeParams]="[{fullWidth: true,indicators:false}]">
   <ul class="slides">
     <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[0] + ')'}"></li>
@@ -7,36 +8,36 @@
   </ul>
 </div>
 
+<!-- valign container -->
 <div class="valign-wrapper row centerContainer" id="id">
   <div class="col s12 center-align">
 
+    <!-- logo -->
     <div class="row">
       <img src="../../assets/img/PikyLogoFaraCerc.png" class=" responsive-img logo">
     </div>
-
-    <div class="row" >
-      <div class="col s12 m10 push-m1 push-l2 l8">
+    <!-- description (under logo) -->
+    <div class="row">
+      <div class="col m12  ">
         <h3 class="shadow">
-            <i fa [name] = "'dollar'" [size]=1 ></i>
+          <i fa [name]="'dollar'" [size]=1></i>
           A magic app for picky boyz and gals
-          <i fa [name] = "'dollar'" [size]=1 ></i>
+          <i fa [name]="'dollar'" [size]=1></i>
         </h3>
       </div>
     </div>
-
+    <!-- button and it's leafs -->
     <div class="row ">
-      <div class="col s12 m10 push-m1 push-l2 l8">
-        <a class="waves-effect waves-light btn" (click)="updateBg()"
-        (mouseenter)="onHo(true)" (mouseleave)="onHo(false)">
+      <div class="col s12 ">
+
+        <img src="../../assets/img/GetStartedButton.png" class="buttonLeafs" />
+        <a class="waves-effect waves-light btn getStarted" (click)="updateBg()" (mouseenter)="onHo(true)" (mouseleave)="onHo(false)">
           <h3>Get Started Now!</h3>
         </a>
+
       </div>
     </div>
 
   </div>
 
-
-
 </div>
-
-

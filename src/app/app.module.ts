@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetBgService } from './services/get-bg.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

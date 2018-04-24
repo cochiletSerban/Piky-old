@@ -1,77 +1,137 @@
- 
- :host{                 /*global component style*/
-    display: block;     /*needed to let divs get up to 100vh*/
-    overflow: auto;
-    height: 100%;
-    background-color:rgb(26, 77, 68);
-}
-.centerContainer
-{
-    height: 100%;       /* valing only works with elem h 100%*/
-    position: relative;
-    z-index: 2;
-    background-color:rgba(26, 77, 68, 0.6);
-    padding: 0;
-    margin: 0;
+/*
+    Late at night it is,
+    this code I write tease!
+    Plese let the hardcode end,
+    and let this my desing blend.
+*/
+
+:host {
+  /*global component style*/
+  display: block;
+  /*needed to let divs get up to 100vh*/
+  overflow: auto;
+  height: 100%;
+  background-color: rgb(26, 77, 68);
+  /* fall back colors*/
 }
 
-.wrapper {              /*any child of wrapper will pe aligned h and w center */
-    height:100vh;  
-        /*makes the magic happen and makes the div full height */
+.centerContainer {
+  /* centers the darkernig filter over pic slider */
+  height: 100%;
+  /* valign only works with elem h 100%*/
+  position: relative;
+  z-index: 2;
+  background-color: rgba(26, 77, 68, 0.6);
+  padding: 0;
+  margin: 0;
 }
 
-.check {
-    border: 2px solid black;
+.wrapper {
+  /*any child of wrapper will pe aligned h and w center */
+  height: 100vh;
+  /*makes the magic happen and makes the div full height */
+}
+
+.shadow {
+  /* adds some sparkle to the text*/
+  color: white;
+  text-shadow: 3px 0px 5px black;
+}
+
+.bgFix {
+  /* fixes image slider and makes pictures strech properly */
+  background: no-repeat center center;
+  background-size: cover;
+}
+
+i {
+  /* adds some padding to fa icons*/
+  margin: 20px;
+}
+
+.col {
+  /*fixes col postion type to center absolute divs inside of it*/
+  position: relative;
 }
 
 .btn {
-    height: 100%;
+  /* fixes materilize css bug that cuts btn text */
+  height: 100%;
+  background-color: #61aa25;
 }
 
-/* used to keep the piky logo proportionted on all devices*/
-@media only screen and (min-width : 980px) {
-    /* if width > 980 */
-    .logo {
-        max-width: 550px;
-    }
-    /* :host{
+.buttonLeafs {
+  min-width: 800px;
+  /* -- absolute centering css magic -- */
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /* --------------------------------- */
+  top: -60px;
+  max-height: 270px;
+  position: absolute;
+  z-index: -1;
+  /* puts leafs under button */
+}
+
+/*----------------------------MEDIA QUERIES----------------------------------*/
+
+/* used to keep the piky logo proportionted on all devices */
+
+/* and to trim logo leafs and dollars on small screens */
+
+@media only screen and (min-width: 980px) {
+  .logo {
+    max-width: 550px;
+  }
+  /* :host{
         background-color:white;
     } */
 }
 
-@media only screen and (max-width : 979px) {
-    /* if width < 979 */
-    .logo {
-        max-width: 60%;
-    }
-    .btn {
-        text-transform: lowercase;
-    }
-    /* :host {
+@media only screen and (max-width: 979px) {
+  .buttonLeafs {
+    display: none;
+  }
+  .fa-dollar {
+    display: none;
+  }
+  .logo {
+    max-width: 60%;
+  }
+  .btn {
+    text-transform: lowercase;
+  }
+  /* :host {
         background-color:teal;
     } */
 }
 
-.shadow{ /* adds some sparkle to the text*/
-    color: white;
-    text-shadow: 3px 0px 5px  black;
+/*-----------------------------Animations------------------------------------*/
+
+@keyframes fadein {
+  /* simple fadeIn animation*/
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.bgFix { /* fixes image slider and makes pictures strech properly */
-    background: no-repeat center center;
-    background-size: cover;
-}
-
-i{
-    margin: 20px;
-}
-
-@keyframes fadein { /* simple fadeIn animation*/
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-}
-
-.btn {
-    background-color: #61aa25;
+@keyframes spin {
+  /* simple spin animation*/
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
