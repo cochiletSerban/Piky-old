@@ -75,6 +75,22 @@ i {
   /* puts leafs under button */
 }
 
+.footer {
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 200px;
+  /* border: 2px solid red; */
+  color: white;
+  text-align: center;
+  background-image: url('../../assets/img/grass.png');
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 250px;
+}
+
 /*----------------------------MEDIA QUERIES----------------------------------*/
 
 /* used to keep the piky logo proportionted on all devices */
