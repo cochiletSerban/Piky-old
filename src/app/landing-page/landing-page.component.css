@@ -1,6 +1,6 @@
 /*
     Late at night it is,
-    this code I write tease!
+    this code I write is a tease!
     Plese let the hardcode end,
     and let this my desing blend.
 */
@@ -21,9 +21,9 @@
   /* valign only works with elem h 100%*/
   position: relative;
   z-index: 2;
-  background-color: rgba(26, 77, 68, 0.6);
   padding: 0;
   margin: 0;
+  background-color: rgba(26, 77, 68, 0.6);
 }
 
 .wrapper {
@@ -75,20 +75,28 @@ i {
   /* puts leafs under button */
 }
 
-.footer {
+.grass {
+  /* makes a sticky footer that has a png bg
+  and it's under the centerContainer div z-index = -1*/
   position: fixed;
   z-index: -1;
   left: 0;
   bottom: 0;
   width: 100%;
   min-height: 200px;
-  /* border: 2px solid red; */
-  color: white;
-  text-align: center;
+  opacity: 0.9;
   background-image: url('../../assets/img/grass.png');
   background-repeat: repeat-x;
   background-position: 0 100%;
   background-size: 250px;
+}
+
+.bar {
+  position: fixed;
+  min-width: 100%;
+  min-height: 8px;
+  z-index: 3;
+  background-color: #78ce32;
 }
 
 /*----------------------------MEDIA QUERIES----------------------------------*/
@@ -124,7 +132,7 @@ i {
     } */
 }
 
-/*-----------------------------Animations------------------------------------*/
+/*----------------------------- Animations/Trans Class--------------------------*/
 
 @keyframes fadein {
   /* simple fadeIn animation*/
@@ -144,7 +152,14 @@ i {
   0% {
     transform: rotate(0deg);
   }
-  50% {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes spinBack {
+  /* simple reverse spin animation*/
+  0% {
     transform: rotate(180deg);
   }
   100% {

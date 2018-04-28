@@ -1,15 +1,20 @@
+<!-- top bar -->
+<div class="bar"></div>
+
 <!-- image slider -->
 <div class="slider fullscreen" materialize="slider" [materializeParams]="[{fullWidth: true,indicators:false}]">
   <ul class="slides">
     <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[0] + ')'}"></li>
-    <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[1] + ')'}"></li>
-    <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[2] + ')'}"></li>
-    <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[3] + ')'}"></li>
+    <!-- <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[1] + ')'}"></li> -->
+    <!-- <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[2] + ')'}"></li> -->
+    <!-- <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[3] + ')'}"></li> -->
   </ul>
 </div>
 
+
 <!-- valign container -->
 <div class="valign-wrapper row centerContainer" id="id">
+
   <div class="col s12 center-align">
 
     <!-- logo -->
@@ -20,9 +25,9 @@
     <div class="row">
       <div class="col m12  ">
         <h3 class="shadow">
-          <i fa [name]="'dollar'" [size]=1></i>
-          A magic app for picky boyz and gals
-          <i fa [name]="'dollar'" [size]=1></i>
+          <i fa [name]="'diamond'" [size]=1 #fa1></i>
+          Discover yourself through images !
+          <i fa [name]="'diamond'" [size]=1 #fa2></i>
         </h3>
       </div>
     </div>
@@ -37,7 +42,7 @@
 
       </div>
     </div>
-
   </div>
-  <div class="footer"> </div>
+  <!-- garss footer -->
+  <div class="grass"> </div>
 </div>
