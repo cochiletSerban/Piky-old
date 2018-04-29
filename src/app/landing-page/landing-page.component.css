@@ -61,15 +61,15 @@ i {
 }
 
 .buttonLeafs {
-  min-width: 800px;
+  min-width: 400px;
   /* -- absolute centering css magic -- */
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   /* --------------------------------- */
-  top: -60px;
-  max-height: 270px;
+  top: -30px;
+  max-height: 135px;
   position: absolute;
   z-index: -1;
   /* puts leafs under button */
@@ -83,21 +83,23 @@ i {
   left: 0;
   bottom: 0;
   width: 100%;
-  min-height: 200px;
+  min-height: 100px;
   opacity: 0.9;
   background-image: url('../../assets/img/grass.png');
   background-repeat: repeat-x;
   background-position: 0 100%;
-  background-size: 250px;
+  background-size: 125px;
 }
 
 .bar {
   position: fixed;
   min-width: 100%;
-  min-height: 8px;
+  min-height: 4px;
   z-index: 3;
   background-color: #78ce32;
 }
+
+
 
 /*----------------------------MEDIA QUERIES----------------------------------*/
 
@@ -107,7 +109,7 @@ i {
 
 @media only screen and (min-width: 980px) {
   .logo {
-    max-width: 550px;
+    max-width: 275px;
   }
   /* :host{
         background-color:white;
@@ -118,11 +120,11 @@ i {
   .buttonLeafs {
     display: none;
   }
-  .fa-dollar {
+  .fa-diamond {
     display: none;
   }
   .logo {
-    max-width: 60%;
+    max-width: 200px;;
   }
   .btn {
     text-transform: lowercase;

@@ -5,9 +5,9 @@
 <div class="slider fullscreen" materialize="slider" [materializeParams]="[{fullWidth: true,indicators:false}]">
   <ul class="slides">
     <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[0] + ')'}"></li>
-    <!-- <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[1] + ')'}"></li> -->
-    <!-- <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[2] + ')'}"></li> -->
-    <!-- <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[3] + ')'}"></li> -->
+    <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[1] + ')'}"></li>
+    <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[2] + ')'}"></li>
+    <li class="bgFix" [ngStyle]="{ 'background-image': 'url(' + bgs.url[3] + ')'}"></li>
   </ul>
 </div>
 
@@ -23,12 +23,12 @@
     </div>
     <!-- description (under logo) -->
     <div class="row">
-      <div class="col m12  ">
-        <h3 class="shadow">
+      <div class="col s12 ">
+        <h5 class="shadow" >
           <i fa [name]="'diamond'" [size]=1 #fa1></i>
           Discover yourself through images !
           <i fa [name]="'diamond'" [size]=1 #fa2></i>
-        </h3>
+        </h5>
       </div>
     </div>
     <!-- button and it's leafs -->
@@ -37,7 +37,7 @@
 
         <img src="../../assets/img/GetStartedButton.png" class="buttonLeafs" />
         <a class="waves-effect waves-light btn getStarted" (click)="updateBg()" (mouseenter)="onHo(true)" (mouseleave)="onHo(false)">
-          <h3>Get Started Now!</h3>
+        <h5 >Get Started Now!</h5> 
         </a>
 
       </div>
