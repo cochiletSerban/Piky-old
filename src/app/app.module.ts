@@ -7,21 +7,36 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GetBgService } from './services/get-bg.service';
+import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AuthPageComponent } from './auth-page/auth-page.component';
+import { FeedComponent } from './feed/feed.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
 
-
+const appRoutes: Routes = [
+  { path: '', component: LandingPageComponent },
+  { path: 'auth', component:AuthPageComponent },
+  { path: 'browse', component: HomePageComponent },
+  { path: 'feed', canActivate:[AuthGuardService], component:FeedComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    HomePageComponent,
+    FeedComponent,
+    AuthPageComponent
   ],
   imports: [
     MaterializeModule,
     BrowserModule,
     Angular2FontawesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [GetBgService],
+  providers: [GetBgService,AuthGuardService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
