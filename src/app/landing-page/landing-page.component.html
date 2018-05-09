@@ -19,7 +19,11 @@
 
     <!-- logo -->
     <div class="row">
-      <img src="../../assets/img/PikyLogoFaraCerc.png" class=" responsive-img logo">
+      <div class="col s12">
+        <img src="../../assets/img/eth.png" class="responsive-img logo logoOver animated" #eth id="eth">
+        <img src="../../assets/img/JustPiky.png" class="responsive-img logo logoOver" #logo>
+        <img src="../../assets/img/PikyFaraEth.png" class="responsive-img logo" >
+      </div>
     </div>
     <!-- description (under logo) -->
     <div class="row">
@@ -34,8 +38,7 @@
     <!-- button and it's leafs -->
     <div class="row ">
       <div class="col s12 ">
-
-        <img src="../../assets/img/GetStartedButton.png" class="buttonLeafs" />
+        <img src="../../assets/img/GetStartedButton.png" class="buttonLeafs animated" #frunze />
         <a class="waves-effect waves-light btn getStarted" (click)="updateBg()" (mouseenter)="onHo(true)" (mouseleave)="onHo(false)">
         <h5>Get Started Now!</h5>
         </a>
@@ -44,5 +47,5 @@
     </div>
   </div>
   <!-- garss footer -->
-  <div class="grass"> </div>
+  <div class="grass animated" #grass> </div>
 </div>

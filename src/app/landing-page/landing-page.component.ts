@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ViewChild} from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import { GetBgService } from '../services/get-bg.service';
 import { BgArray } from '../objects/BgArray';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome';
@@ -12,20 +12,36 @@ declare var $: any;
   styleUrls: ['./landing-page.component.css']
 })
 
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent implements OnInit, AfterViewInit {
 
   @ViewChild('fa1') fa1;
   @ViewChild('fa2') fa2;
+  @ViewChild('frunze') frunze;
+  @ViewChild('grass') grass;
+  @ViewChild('logo') logo;
+  @ViewChild('eth') eth;
 
   bgs: BgArray = {
     url: ["https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a5d669a96788_JessicaNigri.jpg"]
   };
 
-  constructor(private bg: GetBgService, private render: Renderer2) {}
+  constructor(private bg: GetBgService, private render: Renderer2, private ref:ElementRef) {}
 
   ngOnInit() {
-    this.bg.getBg().subscribe(resp => this.bgs = resp);
+    this.bg.getBg().subscribe(resp => {
+      this.bgs = resp
+      this.render.addClass(this.frunze.nativeElement,"zoomIn");
+      this.render.addClass(this.grass.nativeElement,"slideInUp");
+      this.render.setStyle(this.logo.nativeElement,'animation', 'pick 1s');
+      // this.render.addClass(this.eth.nativeElement,"flash");
+    });
+
   }
+
+  ngAfterViewInit(){
+
+  }
+
 
   onHo(hovering: boolean) {
     if (hovering) {
