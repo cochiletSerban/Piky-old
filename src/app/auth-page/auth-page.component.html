@@ -44,7 +44,7 @@
             </ul>
           </div>
           
-          <div id="test1" class="col s12">
+          <div id="test1" class="col s12" *ngIf="showLogin">
             <form [formGroup]="loginForm" (ngSubmit)="login()">
 
               <div class="input-field">
@@ -57,11 +57,11 @@
                 <label for="password">Password</label>
               </div>
 
-              <button class="btn waves-light waves-effect" #loginPiky>logIn</button>
+              <button class="btn waves-light waves-effect" #loginPiky>login</button>
               {{errMsg}}
             </form>
           </div>
-          <div id="test2" class="col s12">
+          <div id="test2" class="col s12" *ngIf="!showLogin">
 
             <form [formGroup]="registerForm" (ngSubmit)="register()">
 

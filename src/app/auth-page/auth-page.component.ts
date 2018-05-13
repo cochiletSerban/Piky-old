@@ -15,7 +15,7 @@ export class AuthPageComponent implements OnInit {
   @ViewChild('loginFb') loginFb;
   @ViewChild('loginEth') loginEth;
   @ViewChild('fromContainer') formContainer;
-
+  showLogin: boolean = true;
   myEmailValidator: string ='';
   myPasswordValidator: string ='';
   errMsg: string;
@@ -116,12 +116,14 @@ export class AuthPageComponent implements OnInit {
       this.myEmailValidator = '';
       this.myEmailValidator = '';
       this.errMsg = '';
+      this.showLogin = false;
 
     } else {
       this.registerForm.reset();
       this.myEmailValidator = '';
       this.myEmailValidator = '';
       this.errMsg = '';
+      this.showLogin = true;
     }
   }
 
