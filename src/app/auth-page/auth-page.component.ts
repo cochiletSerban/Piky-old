@@ -83,10 +83,14 @@ export class AuthPageComponent implements OnInit {
           if(this.errMsg.charAt(0)=='N'){
             this.loginForm.controls['email'].setErrors({'incorrect': true});
             this.myEmailValidator = 'invalid';
+            this.render.removeClass(this.titleBar.nativeElement,'bounce');
+            
             this.shakeFrom();
           } else {
             this.loginForm.controls['password'].setErrors({'incorrect': true});
             this.myPasswordValidator = 'invalid';
+            this.render.removeClass(this.titleBar.nativeElement,'bounce');
+            
             this.shakeFrom();
           }
         }
@@ -104,6 +108,21 @@ export class AuthPageComponent implements OnInit {
       preferences: []
     }
     this.auth.register(this.user).subscribe(resp => console.log(resp),err =>(console.log(err.error)));
+  }
+
+  cleanForms(form:string){
+    if(form=='login'){
+      this.loginForm.reset();
+      this.myEmailValidator = '';
+      this.myEmailValidator = '';
+      this.errMsg = '';
+
+    } else {
+      this.registerForm.reset();
+      this.myEmailValidator = '';
+      this.myEmailValidator = '';
+      this.errMsg = '';
+    }
   }
 
   fbLogin(){
