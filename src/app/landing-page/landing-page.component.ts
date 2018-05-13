@@ -28,14 +28,10 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   constructor(private bg: GetBgService, private render: Renderer2, private ref:ElementRef) {}
 
   ngOnInit() {
-    this.bg.getBg().subscribe(resp => {
-      this.bgs = resp
-      this.render.addClass(this.frunze.nativeElement,"zoomIn");
-      this.render.addClass(this.grass.nativeElement,"slideInUp");
-      this.render.setStyle(this.logo.nativeElement,'animation', 'pick 1s');
-      // this.render.addClass(this.eth.nativeElement,"flash");
-    });
-
+    this.render.addClass(this.frunze.nativeElement,"zoomIn");
+    this.render.addClass(this.grass.nativeElement,"slideInUp");
+    this.render.setStyle(this.logo.nativeElement,'animation', 'pick 1s');
+    this.bg.getBg().subscribe(resp => this.bgs = resp);
   }
 
   ngAfterViewInit(){

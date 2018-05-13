@@ -13,6 +13,7 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
 import { FeedComponent } from './feed/feed.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   imports: [
     MaterializeModule,
     BrowserModule,
+    ReactiveFormsModule,
     Angular2FontawesomeModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)

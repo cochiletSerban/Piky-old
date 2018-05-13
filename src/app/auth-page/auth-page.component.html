@@ -1,25 +1,94 @@
-<nav></nav>
+<!-- 
+  I touch your lips and all at once the sparks go flying
+  Those devil lips that know so well the art of lying 
+-->
 
-<div class="container">
+<div class="row animated" #fromContainer >
 
-  <div class="row">
-    <form class="col s12">
+  <div class="col s12 m6 push-m3 l4 push-l4">
+    <div class="titleBarContainer">
+      <div class="titleBar" >
+        <img src="{{loginLogo}}" class='animated' #titleBar>
+      </div>
+    </div>
 
-      <div class="row">
-          <div class="input-field col s12 m6">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
+    <div class="formContainer animated" >
 
-        <div class="input-field col s12 m6">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-
-        <button class="btn waves-light waves-effect">logIn</button>
+      <div class="fbl">
+        <button class="btn waves-light waves-effect" 
+        (click)='fbLogin()' #loginFb
+        (mouseenter)="onHo('fb',true)" (mouseleave)="onHo('fb',false)" >
+          Login with Facebook
+        </button>
+        <img src="../../assets/img/ethBtn.png" alt="">
       </div>
 
-    </form>
+      <div class="eth">
+
+        <button class="btn waves-light waves-effect"
+        (click)='ethLogin()' #loginEth  
+        (mouseenter)="onHo('eth',true)" (mouseleave)="onHo('eth',false)" >
+          login with etherium
+        </button>
+      </div>
+
+      <div class="formBox" (mouseenter)="onHo('piky',true)" (mouseleave)="onHo('piky',false)" >
+
+        <h6>~ OR ~</h6>
+        
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs" >
+              <li class="tab col s6"><a  href="#test1">Login</a></li>
+              <li class="tab col s6"><a  href="#test2">Register</a></li>
+            </ul>
+          </div>
+          
+          <div id="test1" class="col s12">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+              <div class="input-field">
+                <input  type="email" class="{{myEmailValidator}}" formControlName="email">
+                <label for="email">Email</label>
+              </div>
+
+              <div class="input-field">
+                <input  type="password" class="{{myPasswordValidator}}" formControlName="password">
+                <label for="password">Password</label>
+              </div>
+
+              <button class="btn waves-light waves-effect" #loginPiky>logIn</button>
+              {{errMsg}}
+            </form>
+          </div>
+          <div id="test2" class="col s12">
+
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+              <div class="input-field">
+                <input  type="email" class="{{myEmailValidator}}" formControlName="email">
+                <label for="email">Email</label>
+              </div>
+
+              <div class="input-field">
+                <input  type="password" class="{{myPasswordValidator}}" formControlName="password">
+                <label for="password">Password</label>
+              </div>
+
+              <button class="btn waves-light waves-effect" #loginPiky>register</button>
+            </form>
+          
+
+          </div>
+        
+        </div>
+
+
+
+
+
+      </div>
+    </div>
   </div>
 
 </div>
