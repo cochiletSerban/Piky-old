@@ -15,59 +15,65 @@ export class AuthPageComponent implements OnInit {
   @ViewChild('loginFb') loginFb;
   @ViewChild('loginEth') loginEth;
   @ViewChild('fromContainer') formContainer;
-  showLogin: boolean = true;
-  myEmailValidator: string ='';
-  myPasswordValidator: string ='';
-  errMsg: string;
-  loginLogo: string = "../../assets/img/PikyLogoCerc.png";
-  user : User;
+  @ViewChild('tab1') tab1;
+  @ViewChild('tab2') tab2;
+  showLogin = true;
+  myEmailValidator = '';
+  myPasswordValidator = '';
+  errMsg = '';
+  loginLogo = '../../assets/img/PikyLogoCerc.png';
+  user: User;
   loginForm: FormGroup;
   registerForm: FormGroup;
-  constructor(private auth:AuthService, private render:Renderer2) { }
+  show = false;
+  constructor(private auth: AuthService, private render: Renderer2) { }
 
 
   ngOnInit() {
     this.loginForm = new FormGroup({
       'password' : new FormControl(null, Validators.required),
-      'email' : new FormControl(null, [Validators.email ,Validators.required])
-    })
+      'email' : new FormControl(null, [Validators.email , Validators.required])
+    });
     this.registerForm =  new FormGroup({
       'password' : new FormControl(null, Validators.required),
-      'email' : new FormControl(null, [Validators.email,Validators.required])
-    })
+      'email' : new FormControl(null, [Validators.email, Validators.required])
+    });
   }
 
  shakeFrom() {
-    this.render.addClass(this.formContainer.nativeElement,'shake');
-    setTimeout(()=>{
-      this.render.removeClass(this.formContainer.nativeElement,'shake');
-    },1000)
+    this.render.addClass(this.formContainer.nativeElement, 'shake');
+    setTimeout(() => {
+      this.render.removeClass(this.formContainer.nativeElement, 'shake');
+    }, 1000);
   }
 
-  moveTitleBar(button:ElementRef) {
-    this.render.addClass(this.titleBar.nativeElement,'bounce');
-    this.render.addClass(button.nativeElement,'disabled');
-    setTimeout(()=>{
-      this.render.removeClass(this.titleBar.nativeElement,'bounce');
-      this.render.removeClass(button.nativeElement,'disabled');
-    },1000)
+  moveTitleBar(button: ElementRef) {
+    this.render.addClass(this.titleBar.nativeElement, 'bounce');
+    this.render.addClass(button.nativeElement, 'disabled');
+    setTimeout(() => {
+      this.render.removeClass(this.titleBar.nativeElement, 'bounce');
+      this.render.removeClass(button.nativeElement, 'disabled');
+    }, 1000);
   }
 
   login() {
+    this.show = false;
     this.user = {
-      username: " ",
-      email:this.loginForm.value.email,
-      password:this.loginForm.value.password,
+      username: '',
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
       favorites: [],
       preferences: []
-    }
-    if(!this.loginForm.get('email').valid) {
+    };
+    if (!this.loginForm.get('email').valid) {
       this.errMsg = 'Invalid email!';
+      this.show = true;
       this.myEmailValidator = 'invalid';
       this.shakeFrom();
-    } else if(!this.loginForm.get('password').valid ) {
+    } else if (!this.loginForm.get('password').valid ) {
       this.myEmailValidator = 'valid';
       this.errMsg = 'Invaild password';
+      this.show = true;
       this.myPasswordValidator = 'invalid';
       this.shakeFrom();
     } else if (this.loginForm.valid) {
@@ -76,44 +82,51 @@ export class AuthPageComponent implements OnInit {
       this.myPasswordValidator = 'valid';
       this.errMsg = '';
       this.auth.login(this.user).subscribe(
-        resp => console.log(resp),
+        resp => {
+          console.log(resp);
+        },
         err => {
-          this.errMsg = err.error
-          if(this.errMsg.charAt(0)=='N'){
+          this.errMsg = err.error;
+          this.show = true;
+          if (this.errMsg.charAt(0) === 'N') {
             this.loginForm.controls['email'].setErrors({'incorrect': true});
             this.myEmailValidator = 'invalid';
-            this.render.removeClass(this.titleBar.nativeElement,'bounce');
+            this.render.removeClass(this.titleBar.nativeElement, 'bounce');
 
             this.shakeFrom();
           } else {
             this.loginForm.controls['password'].setErrors({'incorrect': true});
             this.myPasswordValidator = 'invalid';
-            this.render.removeClass(this.titleBar.nativeElement,'bounce');
+            this.render.removeClass(this.titleBar.nativeElement, 'bounce');
 
             this.shakeFrom();
           }
         }
-      )}
+      );
+    }
 
   }
 
   register() {
+    this.show = false;
     this.moveTitleBar(this.loginPiky);
     this.user = {
-      username: " ",
-      email:this.registerForm.value.email,
-      password:this.registerForm.value.password,
+      username: '',
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password,
       favorites: [],
       preferences: []
-    }
+    };
 
-    if(!this.registerForm.get('email').valid) {
+    if (!this.registerForm.get('email').valid) {
       this.errMsg = 'Invalid email!';
+      this.show = true;
       this.myEmailValidator = 'invalid';
       this.shakeFrom();
-    } else if(!this.registerForm.get('password').valid ) {
+    } else if (!this.registerForm.get('password').valid ) {
       this.myEmailValidator = 'valid';
       this.errMsg = 'Invaild password';
+      this.show = true;
       this.myPasswordValidator = 'invalid';
       this.shakeFrom();
     } else if (this.registerForm.valid) {
@@ -124,62 +137,67 @@ export class AuthPageComponent implements OnInit {
       this.auth.register(this.user).subscribe(
         resp => console.log(resp),
         err => {
-          this.errMsg = err.error
-          if(this.errMsg.charAt(0)=='N'){
+          this.errMsg = err.error;
+          this.show = true;
+          if (this.errMsg.charAt(0) === 'N') {
             this.loginForm.controls['email'].setErrors({'incorrect': true});
             this.myEmailValidator = 'invalid';
-            this.render.removeClass(this.titleBar.nativeElement,'bounce');
+            this.render.removeClass(this.titleBar.nativeElement, 'bounce');
 
             this.shakeFrom();
           } else {
             this.loginForm.controls['password'].setErrors({'incorrect': true});
             this.myPasswordValidator = 'invalid';
-            this.render.removeClass(this.titleBar.nativeElement,'bounce');
+            this.render.removeClass(this.titleBar.nativeElement, 'bounce');
 
             this.shakeFrom();
           }
         }
-      )}
-
-
+      );
+    }
   }
 
-  cleanForms(form:string){
-    if(form=='login'){
+  cleanForms(form: string) {
+
+    if (form === 'login') {
       this.loginForm.reset();
       this.myEmailValidator = '';
-      this.myEmailValidator = '';
+      this.myPasswordValidator = '';
+      this.show = false;
       this.errMsg = '';
       this.showLogin = false;
 
     } else {
       this.registerForm.reset();
       this.myEmailValidator = '';
-      this.myEmailValidator = '';
+      this.myPasswordValidator = '';
+      this.show = false;
       this.errMsg = '';
+
       this.showLogin = true;
+
     }
   }
 
-  fbLogin(){
+  fbLogin() {
     this.moveTitleBar(this.loginFb);
   }
 
-  ethLogin(){
+  ethLogin() {
     this.moveTitleBar(this.loginEth);
   }
 
-  onHo(target:string,hovering:boolean) {
+  onHo(target: string, hovering: boolean) {
 
-    if(hovering) {
+    if (hovering) {
 
-      switch(target){
+      switch (target) {
         case 'piky':
-          this.loginLogo = "../../assets/img/PikyLogoCerc.png";
+          this.loginLogo = '../../assets/img/PikyLogoCerc.png';
         break;
 
         case 'eth':
-          this.loginLogo = "../../assets/img/ethLogo.png";
+          this.loginLogo = '../../assets/img/ethLogo.png';
         break;
 
         case 'fb':
@@ -188,7 +206,7 @@ export class AuthPageComponent implements OnInit {
       }
 
     } else {
-      this.loginLogo = "../../assets/img/PikyLogoCerc.png";
+      this.loginLogo = '../../assets/img/PikyLogoCerc.png';
     }
   }
 
