@@ -53,8 +53,7 @@ export class AuthPageComponent implements OnInit {
     },1000)
   }
 
-  login(){  
-
+  login() {
     this.user = {
       username: " ",
       email:this.loginForm.value.email,
@@ -84,18 +83,18 @@ export class AuthPageComponent implements OnInit {
             this.loginForm.controls['email'].setErrors({'incorrect': true});
             this.myEmailValidator = 'invalid';
             this.render.removeClass(this.titleBar.nativeElement,'bounce');
-            
+
             this.shakeFrom();
           } else {
             this.loginForm.controls['password'].setErrors({'incorrect': true});
             this.myPasswordValidator = 'invalid';
             this.render.removeClass(this.titleBar.nativeElement,'bounce');
-            
+
             this.shakeFrom();
           }
         }
       )}
-   
+
   }
 
   register() {
@@ -107,7 +106,42 @@ export class AuthPageComponent implements OnInit {
       favorites: [],
       preferences: []
     }
-    this.auth.register(this.user).subscribe(resp => console.log(resp),err =>(console.log(err.error)));
+
+    if(!this.registerForm.get('email').valid) {
+      this.errMsg = 'Invalid email!';
+      this.myEmailValidator = 'invalid';
+      this.shakeFrom();
+    } else if(!this.registerForm.get('password').valid ) {
+      this.myEmailValidator = 'valid';
+      this.errMsg = 'Invaild password';
+      this.myPasswordValidator = 'invalid';
+      this.shakeFrom();
+    } else if (this.registerForm.valid) {
+      this.moveTitleBar(this.loginPiky);
+      this.myEmailValidator = 'valid';
+      this.myPasswordValidator = 'valid';
+      this.errMsg = '';
+      this.auth.register(this.user).subscribe(
+        resp => console.log(resp),
+        err => {
+          this.errMsg = err.error
+          if(this.errMsg.charAt(0)=='N'){
+            this.loginForm.controls['email'].setErrors({'incorrect': true});
+            this.myEmailValidator = 'invalid';
+            this.render.removeClass(this.titleBar.nativeElement,'bounce');
+
+            this.shakeFrom();
+          } else {
+            this.loginForm.controls['password'].setErrors({'incorrect': true});
+            this.myPasswordValidator = 'invalid';
+            this.render.removeClass(this.titleBar.nativeElement,'bounce');
+
+            this.shakeFrom();
+          }
+        }
+      )}
+
+
   }
 
   cleanForms(form:string){
@@ -143,7 +177,7 @@ export class AuthPageComponent implements OnInit {
         case 'piky':
           this.loginLogo = "../../assets/img/PikyLogoCerc.png";
         break;
-        
+
         case 'eth':
           this.loginLogo = "../../assets/img/ethLogo.png";
         break;

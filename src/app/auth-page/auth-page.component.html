@@ -1,6 +1,6 @@
-<!-- 
+<!--
   I touch your lips and all at once the sparks go flying
-  Those devil lips that know so well the art of lying 
+  Those devil lips that know so well the art of lying
 -->
 
 <div class="row animated" #fromContainer >
@@ -15,7 +15,7 @@
     <div class="formContainer animated" >
 
       <div class="fbl">
-        <button class="btn waves-light waves-effect" 
+        <button class="btn waves-light waves-effect"
         (click)='fbLogin()' #loginFb
         (mouseenter)="onHo('fb',true)" (mouseleave)="onHo('fb',false)" >
           Login with Facebook
@@ -26,7 +26,7 @@
       <div class="eth">
 
         <button class="btn waves-light waves-effect"
-        (click)='ethLogin()' #loginEth  
+        (click)='ethLogin()' #loginEth
         (mouseenter)="onHo('eth',true)" (mouseleave)="onHo('eth',false)" >
           login with etherium
         </button>
@@ -35,7 +35,7 @@
       <div class="formBox" (mouseenter)="onHo('piky',true)" (mouseleave)="onHo('piky',false)" >
 
         <h6>~ OR ~</h6>
-        
+
         <div class="row">
           <div class="col s12">
             <ul class="tabs" >
@@ -43,7 +43,7 @@
               <li class="tab col s6"><a  href="#test2" (click)="cleanForms('login')">Register</a></li>
             </ul>
           </div>
-          
+
           <div id="test1" class="col s12" *ngIf="showLogin">
             <form [formGroup]="loginForm" (ngSubmit)="login()">
 
@@ -76,11 +76,11 @@
               </div>
 
               <button class="btn waves-light waves-effect" #loginPiky>register</button>
+              {{errMsg}}
             </form>
-          
 
           </div>
-        
+
         </div>
 
 
