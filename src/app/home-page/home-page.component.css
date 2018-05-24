@@ -13,3 +13,20 @@
   /* fall back colors*/
 }
 
+.grid {
+    background: #EEE;
+}
+
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid-item {
+    width: 300px;
+    margin-bottom: 20px;
+    float: right;
+}
+
