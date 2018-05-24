@@ -1,7 +1,7 @@
 import { MaterializeModule } from 'angular2-materialize';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Angular2FontawesomeModule } from  'angular2-fontawesome/angular2-fontawesome'
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -15,11 +15,12 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'auth', component:AuthPageComponent },
+  { path: 'auth', component: AuthPageComponent },
   { path: 'browse', component: HomePageComponent },
-  { path: 'feed', canActivate:[AuthGuardService], component:FeedComponent}
+  { path: 'feed', canActivate: [AuthGuardService], component: FeedComponent}
 ];
 
 @NgModule({
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
     LandingPageComponent,
     HomePageComponent,
     FeedComponent,
-    AuthPageComponent
+    AuthPageComponent,
   ],
   imports: [
     MaterializeModule,
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GetBgService,AuthGuardService,AuthService],
+  providers: [GetBgService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
