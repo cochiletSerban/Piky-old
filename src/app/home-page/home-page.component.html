@@ -1,85 +1,43 @@
-<!-- <nav>
-  <div class="container">
-    (insert Logo)
-  </div>
-</nav> -->
+
+  <nav>
+      <div class="masoneryContainer">
+          <div class="nav-wrapper">
+              <a href="" class="brand-logo">Piky</a>
+        </div>
+      </div>
+  </nav>
+
+<div class="masoneryContainer">
+        <ng-masonry-grid
+          [masonryOptions]="{ transitionDuration: '0.8s', gutter: 10 }"
+          [useAnimation]="true"
+          [useImagesLoaded]="true"
+          [scrollAnimationOptions]="{ animationEffect: 'effect-2', minDuration : 0.4, maxDuration : 0.7 }"
+          (onNgMasonryInit)="onNgMasonryInit($event)">
+
+            <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let item of masonryItems; let i = index;" >
+
+                    <div class="col s12 ">
+                      <div class="card">
+                        <div class="card-image">
+                          <img src="{{item}}" >
+                          <span class="card-title">Miss Nigri</span>
+                        </div>
+                        <div class="card-content">
+                          <p>
+                            #GamerGirl
+                            #Cosplay
+                            #Boobs
+                          </p>
+                        </div>
+                        <div class="card-action">
+                          <a href="{{item}}" target="_blank">Open in new tab</a>
+                        </div>
+                      </div>
+                    </div>
 
 
-    <div   class="grid" data-masonry='{"itemSelector": ".grid-item", "columnWidth": 300 , "gutter": 20, "fitWidth": true }'>
-        <div class="card grid-item">
-              <div class="card-image">
-                <img src="http://www.bromygod.com/wp-content/uploads/2014/03/jessica-nigri-007-03302014.jpg">
-                <span class="card-title">Card Title</span>
-              </div>
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-          <div class="card grid-item">
-              <div class="card-image">
-                <img src="https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a5d669a96788_JessicaNigri.jpg">
-                <span class="card-title">Card Title</span>
-              </div>
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </div>
-    
-            <div class="card grid-item">
-                <div class="card-image">
-                  <img src="https://i.imgur.com/TKASA7Q.jpg">
-                  <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div>
-              </div>
-    
-              <div class="card grid-item">
-                  <div class="card-image">
-                    <img src="http://d3u67r7pp2lrq5.cloudfront.net/product_photos/41048922/10929040_10153050890382533_2770775176925106809_o_original_400w.jpg">
-                    <span class="card-title">Card Title</span>
-                  </div>
-                  <div class="card-action">
-                    <a href="#">This is a link</a>
-                  </div>
-                </div>
-    
-    </div>
+            </ng-masonry-grid-item>
 
-
-
-<button (click)="reflow()" style="z-index:100; position:absolute;">cacat</button>
-
-
-
-  <!-- <div class="row">
-
-
-              <img src="https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a5d669a96788_JessicaNigri.jpg">
-
-
-              <img src="https://i.imgur.com/TKASA7Q.jpg">
-
-
-
-              <img src="https://d310a9hpolx59w.cloudfront.net/product_photos/49620412/VKS1_original.jpg">
-
-
-              <img src="http://d3u67r7pp2lrq5.cloudfront.net/product_photos/41048922/10929040_10153050890382533_2770775176925106809_o_original_400w.jpg">
-
-
-    <div class="col s12 m4 xl3 ">
-        <div class="card">
-            <div class="card-image">
-              <img src="http://www.bromygod.com/wp-content/uploads/2014/03/jessica-nigri-007-03302014.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-    </div>
-  </div>
- -->
-
-
+        </ng-masonry-grid>
+</div>

@@ -13,20 +13,77 @@
   /* fall back colors*/
 }
 
-.grid {
-    background: #EEE;
+.masoneryContainer {
+  width: 90%;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+  /* padding: 20px; */
 }
 
 
-.grid:after {
-    content: '';
-    display: block;
-    clear: both;
+
+.nav {
+  margin: 0;
+}
+/* Media Querys */
+
+
+/* 8 */
+@media only screen and (min-width : 2865px) {
+  /* :host {
+    background-color: orange;
+  } */
+  ng-masonry-grid-item {
+    min-width: 12%;
+  }
 }
 
-.grid-item {
-    width: 300px;
-    margin-bottom: 20px;
-    float: right;
+/* 6 */
+@media only screen and (max-width : 2865px) {
+  /* :host {
+    background-color: peru;
+  } */
+  ng-masonry-grid-item {
+    min-width: 16%;
+  }
 }
 
+/* 5 */
+@media only screen and (max-width : 2122px) {
+  /* :host {
+    background-color: yellow;
+  } */
+  ng-masonry-grid-item {
+    min-width: 19.2%;
+  }
+}
+
+/* 4 */
+@media only screen and (max-width : 1780px) {
+  /* :host {
+    background-color: magenta;
+  } */
+  ng-masonry-grid-item {
+    min-width: 24.2%;
+  }
+}
+
+/* 3 */
+@media only screen and (max-width : 1440px) {
+  /* :host {
+    background-color: green;
+  } */
+  ng-masonry-grid-item {
+    min-width: 32.2%;
+  }
+}
+
+/* 2 */
+@media only screen and (max-width : 1089px) {
+  /* :host {
+    background-color: red;
+  } */
+  ng-masonry-grid-item {
+    min-width: 48%;
+  }
+}

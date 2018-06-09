@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/co
 import { BgArray } from '../objects/BgArray';
 import { GetBgService } from '../services/get-bg.service';
 import '../../../node_modules/masonry-layout/dist/masonry.pkgd.js';
+import { Masonry, MasonryGridItem } from 'ng-masonry-grid'; // import necessary datatypes
+
 
 declare var $: any;
 declare var window: any;
@@ -10,20 +12,33 @@ declare var window: any;
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.css', '../../../node_modules/ng-masonry-grid/ng-masonry-grid.css']
 })
 export class HomePageComponent implements OnInit {
-  @ViewChild('grid') grid;
-  cacat = 'container cacat';
+
+  _masonry: Masonry;
+  masonryItems: any[]; // NgMasonryGrid Grid item list
+
   images: BgArray = {
     url: ['https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a5d669a96788_JessicaNigri.jpg']
   };
   constructor(private bg: GetBgService, private render: Renderer2, private ref: ElementRef) { }
 
   ngOnInit() {
-    this.bg.getBg().subscribe(resp => this.images = resp);
+    this.bg.getBg().subscribe(resp => this.masonryItems = resp.url);
   }
-  reflow() {
-    window.dispatchEvent(new Event('resize'));
+
+  onNgMasonryInit($event: Masonry) {
+    this._masonry = $event;
   }
+
+
+  appendItems() {
+    if (this._masonry) {
+      this._masonry.setAddStatus('append');
+      this.masonryItems.push(BgArray);
+    }
+  }
+
+
 }

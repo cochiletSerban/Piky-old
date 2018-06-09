@@ -14,7 +14,7 @@ import { FeedComponent } from './feed/feed.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { NgMasonryGridModule } from 'ng-masonry-grid';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -37,7 +37,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     Angular2FontawesomeModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgMasonryGridModule
   ],
   providers: [GetBgService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]

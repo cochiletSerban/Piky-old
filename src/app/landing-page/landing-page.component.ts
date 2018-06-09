@@ -3,6 +3,7 @@ import { GetBgService } from '../services/get-bg.service';
 import { BgArray } from '../objects/BgArray';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome';
 import { MyJqService } from '../services/my-jq.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -22,22 +23,23 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   @ViewChild('eth') eth;
 
   bgs: BgArray = {
-    url: ["https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a5d669a96788_JessicaNigri.jpg"]
+    url: ['https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a5d669a96788_JessicaNigri.jpg']
   };
 
-  constructor(private bg: GetBgService, private render: Renderer2, private ref:ElementRef) {}
+  constructor(private bg: GetBgService, private render: Renderer2, private ref: ElementRef, router: Router) {}
+
+
 
   ngOnInit() {
-    this.render.addClass(this.frunze.nativeElement,"zoomIn");
-    this.render.addClass(this.grass.nativeElement,"slideInUp");
-    this.render.setStyle(this.logo.nativeElement,'animation', 'pick 1s');
+    this.render.addClass(this.frunze.nativeElement, 'zoomIn');
+    this.render.addClass(this.grass.nativeElement, 'slideInUp');
+    this.render.setStyle(this.logo.nativeElement, 'animation', 'pick 1s');
     this.bg.getBg().subscribe(resp => this.bgs = resp);
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
 
   }
-
 
   onHo(hovering: boolean) {
     if (hovering) {
@@ -48,4 +50,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       this.render.setStyle(this.fa2.nativeElement, 'animation', 'spinBack 1s forwards');
     }
   }
+
+
+
 }
+
