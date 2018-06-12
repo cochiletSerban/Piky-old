@@ -15,6 +15,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgMasonryGridModule } from 'ng-masonry-grid';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     HomePageComponent,
     FeedComponent,
     AuthPageComponent,
+    NavBarComponent,
   ],
   imports: [
     MaterializeModule,

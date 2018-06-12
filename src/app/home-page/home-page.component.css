@@ -1,5 +1,9 @@
 /*
-                          --3--
+              --3--
+*   For this is the end         *
+*   back it brings my friend    *
+*   the one who can't be bent   *
+*   the friend within me        *
 
 */
 
@@ -21,14 +25,18 @@
 }
 
 
-
-.nav {
-  margin: 0;
+.card:hover {
+  box-shadow: 0px 2px 10px grey;
+  width: 101%;
 }
-/* Media Querys */
 
 
-/* 8 */
+
+/*----------------------------MEDIA QUERIES----------------------------------*/
+
+/* used to fix no fit width option of masonery grid  */
+
+/* for 8 cards */
 @media only screen and (min-width : 2865px) {
   /* :host {
     background-color: orange;
