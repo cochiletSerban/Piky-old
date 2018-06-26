@@ -16,3 +16,21 @@ nav, button  {
 .btn:hover {
   background-color:#7EC146 !important;
 }
+
+
+
+
+
+/* debug classes */
+
+.B {
+  border: 2px solid red;
+}
+
+.Ba {
+  background-color: red;
+}
+
+.Dn {
+  display: none;
+}
