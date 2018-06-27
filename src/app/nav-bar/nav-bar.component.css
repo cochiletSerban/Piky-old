@@ -9,6 +9,7 @@ nav {
     max-height: 50px; 
     overflow: hidden;
     display: block;
+
 }
 
 /* add logo to navBar */
@@ -61,7 +62,7 @@ nav {
 }
 /* label underline focus color */
 .input-field input[type=text]:focus {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #A6E275;
   box-shadow: 0 0 0 0 white;
 }
 
@@ -72,18 +73,26 @@ nav {
 
 
 /* user icon */
-
-.col:nth-child(3) {
-  width:60px;
+.userIcon {
+  border:2px solid #A6E275; 
+  background-color: transparent;
+  color: white;
+  width: 35px;
   float: right;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+  margin-top:8px;
+  box-shadow: 0 0 0 5px #2E6500,0 0 2px 5px black;
+ 
+
 }
 
 
 /*----------------------------MEDIA QUERIES----------------------------------*/
 
-/* used for navBar & navBar container scaling */
-
-
+/* used for user Icon & navBar container scaling */
 
 @media only screen and (max-width : 1089px) {
     .masoneryContainer {
