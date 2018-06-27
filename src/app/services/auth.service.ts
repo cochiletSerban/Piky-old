@@ -10,7 +10,7 @@ import { LoginResponse } from '../objects/loginResponse';
 export class AuthService {
 
   token: string;
-  url = 'http://piky.herokuapp.com/';
+  url = 'https://piky.herokuapp.com/';
   userStatus = false;
 
   constructor(private http:HttpClient) {}
