@@ -12,6 +12,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
     this.render.setStyle(this.eye.nativeElement, 'animation', 'flash 5s infinite');
+    
   }
 
 }
