@@ -26,7 +26,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     url: ['https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a5d669a96788_JessicaNigri.jpg']
   };
 
-  constructor(private bg: GetBgService, private render: Renderer2, private ref: ElementRef, router: Router) {}
+
+  constructor(private bg: GetBgService, private render: Renderer2, private ref: ElementRef, private router: Router) {}
 
 
 
@@ -50,7 +51,10 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       this.render.setStyle(this.fa2.nativeElement, 'animation', 'spinBack 1s forwards');
     }
   }
-
+  
+  getStarted() {
+    this.router.navigate(['/browse']);
+  }
 
 
 }
