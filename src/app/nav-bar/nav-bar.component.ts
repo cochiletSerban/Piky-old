@@ -6,7 +6,7 @@ import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/co
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
+  logged:boolean = false;
   @ViewChild('eye') eye;
   constructor(private render: Renderer2, private ref: ElementRef) { }
 
