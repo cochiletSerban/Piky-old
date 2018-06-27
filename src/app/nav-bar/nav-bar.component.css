@@ -1,6 +1,7 @@
 .navContainer {
     width: 90%;
     margin: 0 auto;
+
 }
 
 nav {
@@ -50,27 +51,32 @@ nav {
   color:white;
 }
 
+/* label color */
+.input-field label {
+  color: white;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: white;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 2px solid white;
+  box-shadow: 0 0 0 0 white;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: white;
+}
 
 
-  /* label color */
-  .input-field label {
-    color: white;
-  }
-  /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color: white;
-  }
-  /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 2px solid white;
-    box-shadow: 0 0 0 0 white;
-  }
+/* user icon */
 
-  /* icon prefix focus color */
-  .input-field .prefix.active {
-    color: white;
-  }
-
+.col:nth-child(3) {
+  width:37px;
+  float: right;
+}
 
 
 /*----------------------------MEDIA QUERIES----------------------------------*/
