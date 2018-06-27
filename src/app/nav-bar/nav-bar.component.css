@@ -39,16 +39,19 @@ nav {
 /* restyle materializecss's input field */
 .input-field {
   position: relative;
-  top:-6px;
+  top:10px; 
+  background-color:#2E6500;
+  border-radius: 15px;
+  height: 30px;
 }
 
 .input-field > label {
-  margin-top:-12px;
+  margin-top:-29px;
 
 }
 
 .input-field > i {
-  margin-top: 3px;
+  margin-top: -12px;
   color:white;
 }
 
@@ -61,6 +64,17 @@ nav {
   color: white;
 }
 /* label underline focus color */
+.input-field input[type=text] {
+  box-sizing: border-box;
+  height: 30px;
+  top: -18px;
+  position: relative;
+  border-radius: 15px;
+  width:100%;
+  margin-left: 0;
+  padding-left:45px;
+}
+
 .input-field input[type=text]:focus {
   border-bottom: 2px solid #A6E275;
   box-shadow: 0 0 0 0 white;
@@ -77,14 +91,14 @@ nav {
   border:2px solid #A6E275; 
   background-color: transparent;
   color: white;
-  width: 35px;
+  width: 32px;
   float: right;
   text-align: center;
-  height: 35px;
-  line-height: 35px;
+  height: 32px;
+  line-height: 32px;
   border-radius: 50%;
-  margin-top:8px;
-  box-shadow: 0 0 0 5px #2E6500,0 0 2px 5px black;
+  margin-top:9px;
+  box-shadow: 0 0 0 4px #2E6500,0 0 2px 2px black;
  
 
 }
