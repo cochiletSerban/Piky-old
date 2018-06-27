@@ -14,10 +14,9 @@
         </div>
       </div>
 
-      <div class="userIcon">P</div>
+      <div class="userIcon" *ngIf="logged" (click) = "logged=!logged"  >P</div> 
 
-        
-        
+      <button  *ngIf = "!logged" class="btn waves-effect waves-light" (click) = "logged=!logged" >Log in</button>
        
       
 

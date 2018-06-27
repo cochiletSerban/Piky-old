@@ -1,78 +1,85 @@
 .navContainer {
-    width: 90%;
-    margin: 0 auto;
-
+  width: 90%;
+  margin: 0 auto;
 }
 
 nav {
-    min-height: 50px;
-    max-height: 50px; 
-    overflow: hidden;
-    display: block;
-
+  min-height: 50px;
+  max-height: 50px;
+  overflow: hidden;
+  display: block;
 }
 
 /* add logo to navBar */
+
 .logoBase {
-    width: 110px;
-    background-image: url('../../assets/img/birdBanner.png');
-    background-size: cover;
-    min-height: 50px;
-    position: relative;
-    left: -14px;
+  width: 110px;
+  background-image: url('../../assets/img/birdBanner.png');
+  background-size: cover;
+  min-height: 50px;
+  position: relative;
+  left: -14px;
 }
 
 /* overlays the eye to the logo */
 
 .logoEye {
-    width: 110px;
-    background-image: url('../../assets/img/birdEye.png');
-    background-size: cover;
-    min-height: 50px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    margin-left: -14px;
+  width: 110px;
+  background-image: url('../../assets/img/birdEye.png');
+  background-size: cover;
+  min-height: 50px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  margin-left: -14px;
 }
 
-
 /* restyle materializecss's input field */
+
 .input-field {
   position: relative;
-  top:10px; 
-  background-color:#2E6500;
+  top: 10px;
+  background-color: #2E6500;
   border-radius: 15px;
   height: 30px;
 }
 
-.input-field > label {
-  margin-top:-29px;
-
+.input-field>label {
+  margin-top: -29px;
 }
 
-.input-field > i {
+.input-field>i {
   margin-top: -12px;
-  color:white;
+  color: white;
 }
 
 /* label color */
+
 .input-field label {
   color: white;
+  margin-left: 50px;
+  font-weight: 450;
 }
+
 /* label focus color */
-.input-field input[type=text]:focus + label {
+
+.input-field input[type=text]:focus+label {
   color: white;
 }
+
 /* label underline focus color */
+
 .input-field input[type=text] {
   box-sizing: border-box;
   height: 30px;
   top: -18px;
   position: relative;
   border-radius: 15px;
-  width:100%;
+  width: 100%;
   margin-left: 0;
-  padding-left:45px;
+  padding-left: 50px;
+  padding-right: 15px;
+  font-weight: 450;
 }
 
 .input-field input[type=text]:focus {
@@ -81,26 +88,48 @@ nav {
 }
 
 /* icon prefix focus color */
+
 .input-field .prefix.active {
   color: white;
 }
 
+.input-field .prefix {
+  margin-left: 10px;
+}
 
 /* user icon */
+
 .userIcon {
-  border:2px solid #A6E275; 
+  border: 2px solid #A6E275;
   background-color: transparent;
   color: white;
   width: 32px;
   float: right;
-  text-align: center;
+  text-align: center;  
   height: 32px;
   line-height: 32px;
   border-radius: 50%;
-  margin-top:9px;
-  box-shadow: 0 0 0 4px #2E6500,0 0 2px 2px black;
- 
+  margin-top: 9px;
+  box-shadow: 0 0 0 4px #2E6500, 0 0 2px 2px black;
+}
 
+
+/*log in button*/
+
+.navContainer > button {
+  border:2px solid #2E6500;
+  margin-top: 6px;
+  float: right;
+  box-shadow: none;
+  text-transform: capitalize;
+  width: 80px;
+  padding-left: 6px; 
+  padding-right: 6px;
+  padding-top:0px; 
+  color:white;
+  font-weight: 700;
+  height: 35px;
+  line-height: 35px;
 }
 
 
@@ -108,18 +137,17 @@ nav {
 
 /* used for user Icon & navBar container scaling */
 
-@media only screen and (max-width : 1089px) {
-    .masoneryContainer {
-      width: 100%;
-    }
-
+@media only screen and (max-width: 1089px) {
+  .masoneryContainer {
+    width: 100%;
+  }
 }
 
-@media only screen and (max-width : 500px) {
+@media only screen and (max-width: 500px) {
   .navContainer {
     width: 90%;
   }
   .col:nth-child(3) {
-    width:35px;
+    width: 35px;
   }
 }
