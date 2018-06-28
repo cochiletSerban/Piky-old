@@ -7,19 +7,19 @@
       </div>
 
       <div class="col s4 m6 offset-m2 offset-s2  hide-on-small-only">
-        <div class="input-field ">
-          <i class="material-icons prefix">search</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Search</label>
+        <form [formGroup]="searchForm" (ngSubmit)="search()">
+          <div class="input-field ">
+            <i class="material-icons prefix">search</i>
+            <input id="icon_prefix" formControlName="search" type="text" class="validate">
+            <label for="icon_prefix">Search</label>
+          </div>
+        </form>
         </div>
-      </div>
-
-      <div class="userIcon" *ngIf="logged"  >P</div> 
+     
+      <div class="userIcon" *ngIf="logged">P</div> 
 
       <button  *ngIf = "!logged" class="btn waves-effect waves-light"   (click) = "login()">Log in</button>
        
-      
-
     </div>
 
   </nav>

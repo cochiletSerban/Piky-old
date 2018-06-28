@@ -3,6 +3,8 @@ import { BgArray } from '../objects/BgArray';
 import { GetBgService } from '../services/get-bg.service';
 import '../../../node_modules/masonry-layout/dist/masonry.pkgd.js';
 import { Masonry, MasonryGridItem } from 'ng-masonry-grid'; // import necessary datatypes
+import { queryRefresh } from '@angular/core/src/render3/query';
+import { query } from '@angular/core/src/animation/dsl';
 
 
 declare var $: any;
@@ -15,7 +17,7 @@ declare var window: any;
   styleUrls: ['./home-page.component.css', '../../../node_modules/ng-masonry-grid/ng-masonry-grid.css']
 })
 export class HomePageComponent implements OnInit {
-
+  query: String = "bmw m3";
   _masonry: Masonry;
   masonryItems: any[]; // NgMasonryGrid Grid item list
 
@@ -25,20 +27,37 @@ export class HomePageComponent implements OnInit {
   constructor(private bg: GetBgService, private render: Renderer2, private ref: ElementRef) { }
 
   ngOnInit() {
-    this.bg.getBg().subscribe(resp => this.masonryItems = resp.url);
+    this.bg.getImgs(this.query).subscribe(resp => {
+      this.addItems(resp.url)
+    });
   }
 
   onNgMasonryInit($event: Masonry) {
     this._masonry = $event;
   }
+  
+  onSearch(event) {
+   this.bg.getImgs(event).subscribe(resp => {
+      this.query = event;
+      this.replaceItems(resp.url)
+    });
+    
+  }
 
+  addItems(items) {
+    this.masonryItems = items;
+  }
 
-  appendItems() {
+  replaceItems(images) {
     if (this._masonry) {
-      this._masonry.setAddStatus('append');
-      this.masonryItems.push(BgArray);
+      this._masonry.removeAllItems()
+      .subscribe( (items: MasonryGridItem) => {
+          this.masonryItems = [];
+          this.masonryItems = images;
+      });
+      }
     }
+  
   }
 
 
-}

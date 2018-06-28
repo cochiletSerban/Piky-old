@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild, Renderer2, AfterViewInit } fr
 import { AuthService } from '../services/auth.service';
 import { User } from '../objects/User';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-page',
@@ -26,7 +27,7 @@ export class AuthPageComponent implements OnInit {
   loginForm: FormGroup;
   registerForm: FormGroup;
   show = false;
-  constructor(private auth: AuthService, private render: Renderer2) { }
+  constructor(private auth: AuthService, private render: Renderer2, private router: Router) { }
 
 
   ngOnInit() {
@@ -84,6 +85,8 @@ export class AuthPageComponent implements OnInit {
       this.auth.login(this.user).subscribe(
         resp => {
           console.log(resp);
+          this.auth.userStatus = true;
+          this.router.navigate(['/browse']);
         },
         err => {
           this.errMsg = err.error;
