@@ -21,7 +21,8 @@ const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'auth', component: AuthPageComponent },
   { path: 'browse', component: HomePageComponent },
-  { path: 'feed', canActivate: [AuthGuardService], component: FeedComponent}
+  { path: 'feed', canActivate: [AuthGuardService], component: FeedComponent},
+  { path: 'nav', component: NavBarComponent}
 ];
 
 @NgModule({
