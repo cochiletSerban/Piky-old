@@ -9,16 +9,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  logged:boolean = false;
+  logged = false;
   @ViewChild('eye') eye;
   searchForm: FormGroup;
   @Output() searchEvent: EventEmitter<String> = new EventEmitter();
-  constructor(private render: Renderer2, private ref: ElementRef,private router: Router, private auth: AuthService) { }
+  constructor(private render: Renderer2, private ref: ElementRef, private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
     this.searchForm = new FormGroup ({
       'search' : new FormControl(null, Validators.required)
-    })
+    });
 
     this.render.setStyle(this.eye.nativeElement, 'animation', 'flash 5s infinite');
     this.logged = this.auth.isLogedIn();
@@ -30,9 +30,7 @@ export class NavBarComponent implements OnInit {
   }
 
   takeMeHome() {
-    
     this.router.navigate(['/']);
-
   }
 
   login() {

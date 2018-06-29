@@ -65,8 +65,9 @@ export class HomePageComponent implements OnInit {
     }
   }
 
-  onScroll() {
-    this.bg.getImgs(event).subscribe(resp => {
+  onScrollDown() {
+    console.log('scroll');
+    this.bg.getImgs('Jessica Nigri').subscribe(resp => {
       this.appendItems(resp.url);
     });
   }

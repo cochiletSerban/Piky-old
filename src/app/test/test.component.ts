@@ -11,8 +11,6 @@ export class TestComponent implements OnInit {
   throttle = 300;
   scrollDistance = 1;
   scrollUpDistance = 2;
-  //direction = '';
-
   constructor() { }
 
   ngOnInit() {
@@ -23,14 +21,13 @@ export class TestComponent implements OnInit {
 
   pushItems(item) {
     console.log('called');
-    let lent = this.items.length;
+    const lent = this.items.length;
     for (let i = lent; i < item + lent ; i++) {
       this.items.push(i);
     }
   }
   onScrollDown() {
-    console.log("scroll");
+    console.log('scroll');
     this.pushItems(10);
-    //this.direction = 'down';
   }
 }

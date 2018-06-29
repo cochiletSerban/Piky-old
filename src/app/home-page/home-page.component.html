@@ -1,7 +1,14 @@
 
 <app-nav-bar (searchEvent)="onSearch($event)"></app-nav-bar>
 
-<div class="masoneryContainer" >
+<div class="masoneryContainer"           
+ infinite-scroll
+[infiniteScrollDistance]="scrollDistance"
+[infiniteScrollUpDistance]="scrollUpDistance"
+[infiniteScrollThrottle]="throttle"
+(scrolled)="onScrollDown()"
+[scrollWindow]="false"
+>
         <ng-masonry-grid
           [masonryOptions]="{ transitionDuration: '0.8s', gutter: 10 }"
           [useAnimation]="true"
@@ -9,13 +16,7 @@
           [scrollAnimationOptions]="{ animationEffect: 'effect-2', minDuration : 0.4, maxDuration : 0.7 }"
           (onNgMasonryInit)="onNgMasonryInit($event)"
 
-          infinite-scroll
-          [infiniteScrollDistance]="scrollDistance"
-          [infiniteScrollUpDistance]="scrollUpDistance"
-          [infiniteScrollThrottle]="throttle"
-          (scrolled)="onScrollDown()"
-          [scrollWindow]="false"
-          
+
           >
 
 

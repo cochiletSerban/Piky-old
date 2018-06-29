@@ -22,11 +22,15 @@
   margin: 0 auto;
   /* border: 2px solid red; */
   /* padding: 20px; */
+  max-height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
 
 }
 
-ng-masonry-grid{
-  height: 100%;
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 .card:hover {
