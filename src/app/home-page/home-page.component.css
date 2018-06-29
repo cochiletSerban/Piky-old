@@ -25,6 +25,9 @@
 
 }
 
+ng-masonry-grid{
+  height: 100%;
+}
 
 .card:hover {
   box-shadow: 0px 2px 10px grey;

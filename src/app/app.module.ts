@@ -13,16 +13,19 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
 import { FeedComponent } from './feed/feed.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgMasonryGridModule } from 'ng-masonry-grid';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { TestComponent } from './test/test.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'auth', component: AuthPageComponent },
   { path: 'browse', component: HomePageComponent },
-  { path: 'feed', canActivate: [AuthGuardService], component: FeedComponent},
-  { path: 'nav', component: NavBarComponent}
+  { path: 'feed', canActivate: [AuthGuardService], component: FeedComponent },
+  { path: 'nav', component: NavBarComponent },
+  { path: 'test', component: TestComponent }
 ];
 
 @NgModule({
@@ -33,6 +36,7 @@ const appRoutes: Routes = [
     FeedComponent,
     AuthPageComponent,
     NavBarComponent,
+    TestComponent,
   ],
   imports: [
     MaterializeModule,
@@ -41,7 +45,9 @@ const appRoutes: Routes = [
     Angular2FontawesomeModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    NgMasonryGridModule
+    NgMasonryGridModule,
+    InfiniteScrollModule,
+    FormsModule
   ],
   providers: [GetBgService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]

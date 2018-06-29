@@ -1,0 +1,13 @@
+<div class="scroll-container"
+infinite-scroll
+[infiniteScrollDistance]="scrollDistance"
+[infiniteScrollUpDistance]="scrollUpDistance"
+[infiniteScrollThrottle]="throttle"
+(scrolled)="onScrollDown()"
+[scrollWindow]="false"
+
+>
+  <div class="scroll-item" *ngFor="let item of items" (click)="pushItems(10)">
+    item: {{item}}
+  </div>
+</div>

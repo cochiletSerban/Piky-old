@@ -23,7 +23,7 @@
     "@angular/router": "^5.2.0",
     "angular-font-awesome": "^3.1.2",
     "angular2-fontawesome": "^5.2.1",
-    "angular2-infinite-scroll": "^0.3.5",
+    "angular2-infinite-scroll": "0.8.3",
     "angular2-jwt": "^0.2.3",
     "angular2-materialize": "^15.1.10",
     "animate.css": "^3.6.1",
@@ -36,6 +36,7 @@
     "material-design-icons": "^3.0.1",
     "materialize-css": "^0.100.2",
     "ng-masonry-grid": "^1.2.5",
+    "ngx-infinite-scroll": "^0.8.3",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
