@@ -8,11 +8,6 @@
 */
 
 :host {
-  /*global component style*/
-  display: block;
-  /*needed to let divs get up to 100vh*/
-  overflow: auto;
-  height: 100%;
   background-color: #ECEFF1;
   /* fall back colors*/
 }
@@ -20,12 +15,7 @@
 .masoneryContainer {
   width: 90%;
   margin: 0 auto;
-  /* border: 2px solid red; */
-  /* padding: 20px; */
-  max-height: 100vh;
-  overflow: scroll;
-  overflow-x: hidden;
-
+  padding: 20px;
 }
 
 ::-webkit-scrollbar {

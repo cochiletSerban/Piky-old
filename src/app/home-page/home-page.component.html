@@ -1,50 +1,46 @@
+<app-nav-bar (searchEvent)="onSearch($event)">
+</app-nav-bar>
 
-<app-nav-bar (searchEvent)="onSearch($event)"></app-nav-bar>
-
-<div class="masoneryContainer"           
- infinite-scroll
-[infiniteScrollDistance]="scrollDistance"
-[infiniteScrollUpDistance]="scrollUpDistance"
-[infiniteScrollThrottle]="throttle"
-(scrolled)="onScrollDown()"
-[scrollWindow]="false"
->
-        <ng-masonry-grid
-          [masonryOptions]="{ transitionDuration: '0.8s', gutter: 10 }"
-          [useAnimation]="true"
-          [useImagesLoaded]="true"
-          [scrollAnimationOptions]="{ animationEffect: 'effect-2', minDuration : 0.4, maxDuration : 0.7 }"
-          (onNgMasonryInit)="onNgMasonryInit($event)"
+<div class="masoneryContainer" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+  [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+  <ng-masonry-grid [masonryOptions]="{ transitionDuration: '0.8s', gutter: 10 }" [useAnimation]="false" [useImagesLoaded]="true"
+    [scrollAnimationOptions]="false" (onNgMasonryInit)="onNgMasonryInit($event)">
 
 
-          >
+    <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let item of masonryItems; let i = index;">
+
+      <div class="col s12 ">
+        <div class="card">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img src="{{item}}" class="activator">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{query}}
+              <i class="material-icons right">more_vert</i>
+            </span>
+            <p>
+              <a href="{{item}}">Click to view</a>
+            </p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"> About the m3
+              <i class="material-icons right">close</i>
+            </span>
+            <p>The BMW M3 is a high-performance version of the 3 Series, developed by BMW's in-house motorsport division, BMW
+              M GmbH. M3 models have been derived from the subsequent generations of the BMW 3 Series.</p>
+            <p>The initial model was available in a coupé body style. At times the M3 has also been available in saloon and
+              convertible body styles. Due to the coupé and convertible models no longer being part of the 3 Series range
+              from 2015,[1][2] the F82/F83 coupe and convertible models are now called the M4 based on the newly introduced
+              4 Series. The M3 name remains in use solely for the saloon version.</p>
+          </div>
+
+        </div>
+      </div>
 
 
-            <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let item of masonryItems; let i = index;" >
+    </ng-masonry-grid-item>
 
-                    <div class="col s12 ">
-                      <div class="card">
-
-                        <div class="card-image waves-effect waves-block waves-light">
-                          <img src="{{item}}" class="activator" >
-                        </div>
-
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">{{query}}<i class="material-icons right">more_vert</i></span>
-                            <p><a href="{{item}}">Click to view</a></p>
-                          </div>
-                          <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4"> About the m3<i class="material-icons right">close</i></span>
-                            <p>The BMW M3 is a high-performance version of the 3 Series, developed by BMW's in-house motorsport division, BMW M GmbH. M3 models have been derived from the subsequent generations of the BMW 3 Series.</p>
-                            <p>The initial model was available in a coupé body style. At times the M3 has also been available in saloon and convertible body styles. Due to the coupé and convertible models no longer being part of the 
-                              3 Series range from 2015,[1][2] the F82/F83 coupe and convertible models are now called the M4 based on the newly introduced 4 Series. The M3 name remains in use solely for the saloon version.</p>
-                          </div>
-
-                      </div>
-                    </div>
-
-
-            </ng-masonry-grid-item>
-
-        </ng-masonry-grid>
+  </ng-masonry-grid>
 </div>
