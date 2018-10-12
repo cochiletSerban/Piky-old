@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import {MaterializeAction} from 'angular2-materialize';
-declare var $:any;
+import { Router } from '@angular/router';
+declare var $: any;
 /*
 
 */
@@ -9,7 +10,8 @@ declare var $:any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+  constructor(private router: Router) {}
   title = 'app';
-  ngOnInit(){}
+  ngOnInit() {}
 }

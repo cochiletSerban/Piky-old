@@ -18,6 +18,8 @@ import { NgMasonryGridModule } from 'ng-masonry-grid';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { TestComponent } from './test/test.component';
+import { FrameComponent } from './frame/frame.component';
+import { SafeUrlPipe } from './utils/SafeUrlPipe';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'browse', component: HomePageComponent },
   { path: 'feed', canActivate: [AuthGuardService], component: FeedComponent },
   { path: 'nav', component: NavBarComponent },
-  { path: 'test', component: TestComponent }
+  { path: 'test', component: TestComponent },
+  { path: 'frame/:picutreId', component: FrameComponent }
 ];
 
 @NgModule({
@@ -37,6 +40,8 @@ const appRoutes: Routes = [
     AuthPageComponent,
     NavBarComponent,
     TestComponent,
+    FrameComponent,
+    SafeUrlPipe
   ],
   imports: [
     MaterializeModule,
